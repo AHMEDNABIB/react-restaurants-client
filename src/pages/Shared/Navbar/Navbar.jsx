@@ -13,7 +13,7 @@ const Navbar = () => {
 			<li tabIndex={0}>
 				<details>
 					<summary>Parent</summary>
-					<ul className="p-2">
+					<ul className="p-2 text-black">
 						<li>
 							<a>Submenu 1</a>
 						</li>
@@ -30,7 +30,7 @@ const Navbar = () => {
 	);
     return (
 		<div>
-			<div className="navbar bg-base-100">
+			<div className="navbar fixed z-10 bg-opacity-30 bg-black text-white max-w-screen-xl">
 				<div className="navbar-start">
 					<div className="dropdown">
 						<div
