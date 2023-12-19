@@ -5,6 +5,7 @@
 
 .drawer-side a.active {
     color: white;
+      background-color: transparent;
     
   }
   .drawer-side  a {

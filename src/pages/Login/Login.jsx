@@ -11,7 +11,7 @@ import Swal from "sweetalert2";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Login = () => {
-	const [disabled, setDisabled] = useState(true);
+	const [ setDisabled] = useState(true);
 	const { signIn } = useContext(AuthContext);
 	const navigate = useNavigate();
 	const location = useLocation();
