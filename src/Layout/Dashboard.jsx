@@ -28,11 +28,11 @@ const Dashboard = () => {
 						Open drawer
 					</label>
 				</div>
-				<div className="drawer-side  bg-[#D1A054]">
+				<div className="drawer-side   bg-[#D1A054]">
 					<label
 						htmlFor="my-drawer-2"
 						className="drawer-overlay"></label>
-					<ul className="menu p-4 w-80">
+					<ul className="menu drawer p-4 w-72">
 						<li>
 							<NavLink to="/dashboard/home">
 								<FaHome></FaHome> User Home
@@ -48,12 +48,12 @@ const Dashboard = () => {
 								<FaWallet></FaWallet> Payment History
 							</NavLink>
 						</li>
-						<li>
-							<NavLink to="/dashboard/mycart">
+						<li className="">
+							<NavLink  to="/dashboard/mycart">
 								<FaShoppingCart></FaShoppingCart> My Cart
-								<span className="badge -pl-10 badge-secondary">
+								
 									+{cart?.length || 0}
-								</span>
+								
 							</NavLink>
 						</li>
 						<div className="divider"></div>
