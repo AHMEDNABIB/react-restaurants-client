@@ -12,6 +12,7 @@ import Secret from "../pages/Shared/Secret/Secret";
 import Signup from "../pages/Signup/Signup";
 import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
+import ManageItems from "../pages/Dashboard/ManageItems/ManageItems";
 
 const router = createBrowserRouter([
 	{
@@ -72,6 +73,12 @@ const router = createBrowserRouter([
 					</AdminRoute>
 				),
 			},
+			{
+				path: "manageItems",
+				element: (
+					<AdminRoute><ManageItems></ManageItems></AdminRoute>
+				)
+			}
 		],
 	},
 ]);
