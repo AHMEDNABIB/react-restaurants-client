@@ -1,15 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
+import Dashboard from "../Layout/Dashboard";
 import Main from "../Layout/Main";
+import AddItem from "../pages/Dashboard/AddItem/AddItem";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import MyCart from "../pages/Dashboard/MyCart/MyCart";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import Menu from "../pages/Menu/Menu/Menu";
 import Order from "../pages/Order/Order/Order";
-import Signup from "../pages/Signup/Signup";
-import PrivateRoute from "./PrivateRoute";
 import Secret from "../pages/Shared/Secret/Secret";
-import Dashboard from "../Layout/Dashboard";
-import MyCart from "../pages/Dashboard/MyCart/MyCart";
-import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import Signup from "../pages/Signup/Signup";
+import AdminRoute from "./AdminRoute";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
 	{
@@ -61,6 +63,14 @@ const router = createBrowserRouter([
 			{
 				path: "users",
 				element: <AllUsers></AllUsers>,
+			},
+			{
+				path: "addItem",
+				element: (
+					<AdminRoute>
+						<AddItem></AddItem>
+					</AdminRoute>
+				),
 			},
 		],
 	},

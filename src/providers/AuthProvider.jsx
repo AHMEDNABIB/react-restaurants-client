@@ -1,12 +1,13 @@
+import axios from "axios";
 import {
+	GoogleAuthProvider,
 	createUserWithEmailAndPassword,
 	getAuth,
 	onAuthStateChanged,
 	signInWithEmailAndPassword,
+	signInWithPopup,
 	signOut,
 	updateProfile,
-	GoogleAuthProvider,
-	signInWithPopup,
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
 import { app } from "./../firebase/firebase.config";
@@ -19,31 +20,30 @@ const AuthProvider = ({ children }) => {
 	const [loading, setLoading] = useState(true);
 
 	const createUser = (email, password) => {
-		setLoading(true)
+		setLoading(true);
 		return createUserWithEmailAndPassword(auth, email, password);
 	};
 	const googleProvider = new GoogleAuthProvider();
 
-	const signIn = (email,password) => {
-		setLoading(true)
-		return signInWithEmailAndPassword(auth,email,password)
-	}
+	const signIn = (email, password) => {
+		setLoading(true);
+		return signInWithEmailAndPassword(auth, email, password);
+	};
 
 	const googleSignIn = () => {
-		setLoading(true)
-		return signInWithPopup(auth,googleProvider)
-	}
+		setLoading(true);
+		return signInWithPopup(auth, googleProvider);
+	};
 
 	const logOut = () => {
-		setLoading(true)
-		return signOut(auth)
-	}
+		setLoading(true);
+		return signOut(auth);
+	};
 
 	const updateUserProfile = (name) => {
 		setLoading(true);
 		return updateProfile(auth.currentUser, {
 			displayName: name,
-		
 		});
 	};
 
@@ -51,7 +51,26 @@ const AuthProvider = ({ children }) => {
 		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
 			setUser(currentUser);
 			console.log("current user", currentUser);
-			setLoading(false);
+
+			if (currentUser) {
+				axios
+					.post("http://localhost:5000/jwt", {
+						email: currentUser.email,
+					})
+					.then((data) => {
+						// console.log(data.data.token);
+						localStorage.setItem("access-token", data.data.token);
+						setLoading(false);
+					});
+			} else {
+				// TODO: remove token (if token stored in the client side: Local storage, caching, in memory)
+				localStorage.removeItem("access-token");
+				
+			}
+
+			
+
+			
 		});
 		return () => {
 			return unsubscribe();
