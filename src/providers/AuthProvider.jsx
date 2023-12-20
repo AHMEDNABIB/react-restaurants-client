@@ -68,6 +68,8 @@ const AuthProvider = ({ children }) => {
 				
 			}
 
+				// setLoading(false);
+
 			
 
 			
