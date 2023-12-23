@@ -10,7 +10,7 @@ const AllUsers = () => {
 	// const { refetch, data: users = [] } = useQuery({
 	// 	queryKey: ["users"],
 	// 	queryFn: async () => {
-	// 		const response = await fetch("http://localhost:5000/users");
+	// 		const response = await fetch("https://react-restaurent-server.onrender.com/users");
 
 	// 		return response.json();
 	// 	},
@@ -35,9 +35,12 @@ const AllUsers = () => {
 			confirmButtonText: "Yes, delete it!",
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch(`http://localhost:5000/users/${user._id}`, {
-					method: "DELETE",
-				})
+				fetch(
+					`https://react-restaurent-server.onrender.com/users/${user._id}`,
+					{
+						method: "DELETE",
+					}
+				)
 					.then((res) => res.json())
 					.then((data) => {
 						if (data.deletedCount > 0) {
@@ -54,9 +57,12 @@ const AllUsers = () => {
 	};
 
 	const handleMakeAdmin = (user) => {
-		fetch(`http://localhost:5000/users/admin/${user._id}`, {
-			method: "PATCH",
-		})
+		fetch(
+			`https://react-restaurent-server.onrender.com/users/admin/${user._id}`,
+			{
+				method: "PATCH",
+			}
+		)
 			.then((res) => res.json())
 			.then((data) => {
 				if (data.modifiedCount > 0) {

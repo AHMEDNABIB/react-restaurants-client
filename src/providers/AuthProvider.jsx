@@ -54,7 +54,7 @@ const AuthProvider = ({ children }) => {
 
 			if (currentUser) {
 				axios
-					.post("http://localhost:5000/jwt", {
+					.post("https://react-restaurent-server.onrender.com/jwt", {
 						email: currentUser.email,
 					})
 					.then((data) => {
@@ -65,14 +65,9 @@ const AuthProvider = ({ children }) => {
 			} else {
 				// TODO: remove token (if token stored in the client side: Local storage, caching, in memory)
 				localStorage.removeItem("access-token");
-				
 			}
 
-				// setLoading(false);
-
-			
-
-			
+			// setLoading(false);
 		});
 		return () => {
 			return unsubscribe();

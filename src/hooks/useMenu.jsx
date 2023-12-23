@@ -4,7 +4,7 @@ const useMenu = () => {
 	// const [menu, setMenu] = useState([]);
 	// const [loading, setLoading] = useState(true);
 	// useEffect(() => {
-	// 	fetch("http://localhost:5000/menu")
+	// 	fetch("https://react-restaurent-server.onrender.com/menu")
 	// 		.then((res) => res.json())
 	// 		.then((data) => {
 	// 			setMenu(data);
@@ -19,7 +19,9 @@ const useMenu = () => {
 	} = useQuery({
 		queryKey: ["menu"],
 		queryFn: async () => {
-			const res = await fetch("http://localhost:5000/menu");
+			const res = await fetch(
+				"https://react-restaurent-server.onrender.com/menu"
+			);
 			return res.json();
 		},
 	});

@@ -16,10 +16,10 @@ import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 
 const Testimonials = () => {
-    const [reviews, setReviews] = useState([]);
-    // console.log(reviews)
+	const [reviews, setReviews] = useState([]);
+	// console.log(reviews)
 	useEffect(() => {
-		fetch("http://localhost:5000/reviews")
+		fetch("https://react-restaurent-server.onrender.com/reviews")
 			.then((res) => res.json())
 			.then((data) => setReviews(data));
 	}, []);

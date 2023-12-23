@@ -1,16 +1,15 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import useCart from "./../../../hooks/useCart";
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useCart from "./../../../hooks/useCart";
 
 const MyCart = () => {
-    const [cart, refetch] = useCart();
-    console.log(cart)
-    const total = cart.reduce((sum, item) => item.price + sum, 0);
-    
-    
-   const handleDelete = (item) => {
+	const [cart, refetch] = useCart();
+	console.log(cart);
+	const total = cart.reduce((sum, item) => item.price + sum, 0);
+
+	const handleDelete = (item) => {
 		Swal.fire({
 			title: "Are you sure?",
 			text: "You won't be able to revert this!",
@@ -21,9 +20,12 @@ const MyCart = () => {
 			confirmButtonText: "Yes, delete it!",
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch(`http://localhost:5000/carts/${item._id}`, {
-					method: "DELETE",
-				})
+				fetch(
+					`https://react-restaurent-server.onrender.com/carts/${item._id}`,
+					{
+						method: "DELETE",
+					}
+				)
 					.then((res) => res.json())
 					.then((data) => {
 						if (data.deletedCount > 0) {
@@ -37,8 +39,7 @@ const MyCart = () => {
 					});
 			}
 		});
-   };
-
+	};
 
 	return (
 		<div className="w-full">
@@ -79,7 +80,9 @@ const MyCart = () => {
 								<td>{item.name}</td>
 								<td className="text-end">${item.price}</td>
 								<td>
-									<button onClick={()=>handleDelete(item)} className="btn btn-ghost btn-md text-white bg-red-500 hover:text-red-500">
+									<button
+										onClick={() => handleDelete(item)}
+										className="btn btn-ghost btn-md text-white bg-red-500 hover:text-red-500">
 										<FaTrashAlt></FaTrashAlt>
 									</button>
 								</td>

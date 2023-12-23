@@ -1,8 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "./useAuth";
 import useAxiosSecure from "./useAxiosSecure";
-import { useContext } from "react";
-import { AuthContext } from "../providers/AuthProvider";
 
 const useCart = () => {
 	const axiosSecure = useAxiosSecure();
@@ -22,7 +20,7 @@ const useCart = () => {
 	// const { refetch, data: cart=[] } = useQuery({
 	// 	queryKey: ["carts", user?.email],
 	// 	queryFn: async () => {
-	// 		const response = await fetch(`http://localhost:5000/carts?email=${user?.email}`);
+	// 		const response = await fetch(`https://react-restaurent-server.onrender.com/carts?email=${user?.email}`);
 
 	// 		return response.json();
 	// 	},
