@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "./useAuth";
 
 const axiosSecure = axios.create({
-	baseURL: "https://react-restaurent-server.onrender.com/",
+	// baseURL: "https://react-restaurent-server.onrender.com/",
+	baseURL: "http://localhost:5000/",
 });
 const useAxiosSecure = () => {
 	const navigate = useNavigate();

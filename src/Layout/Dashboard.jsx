@@ -60,12 +60,12 @@ const Dashboard = () => {
 										Manage Items
 									</NavLink>
 								</li>
-								<li>
+								{/* <li>
 									<NavLink to="/dashboard/bookings">
 										<FaBook></FaBook>
 										Manage Bookings
 									</NavLink>
-								</li>
+								</li> */}
 								<li>
 									<NavLink to="/dashboard/users">
 										<FaUsers></FaUsers>
@@ -83,30 +83,30 @@ const Dashboard = () => {
 										User Home
 									</NavLink>
 								</li>
-								<li>
+								{/* <li>
 									<NavLink to="/dashboard/reservation">
 										<FaCalendar></FaCalendar>
 										Reservation
 									</NavLink>
-								</li>
+								</li> */}
 								<li>
 									<NavLink to="/dashboard/mycart">
 										<FaShoppingCart></FaShoppingCart>
 										My Cart ({cart.length})
 									</NavLink>
 								</li>
-								<li>
+								{/* <li>
 									<NavLink to="/dashboard/review">
 										<FaAd></FaAd>
 										Add a Review
 									</NavLink>
-								</li>
-								<li>
+								</li> */}
+								{/* <li>
 									<NavLink to="/dashboard/bookings">
 										<FaList></FaList>
 										My Bookings
 									</NavLink>
-								</li>
+								</li> */}
 							</>
 						)}
 						{/* Shared nav links */}

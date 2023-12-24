@@ -36,20 +36,24 @@ const NavBar = () => {
 				</li>
 			)}
 			{user && !isAdmin && (
-				<li>
-					<Link to="/dashboard/userHome">Dashboard</Link>
-				</li>
+				<>
+					<li>
+						<Link to="/dashboard/userHome">Dashboard</Link>
+					</li>
+
+					<li>
+						<Link to="dashboard/mycart">
+							<button className="btn gap-2">
+								<FaShoppingCart></FaShoppingCart>
+								<div className="badge badge-secondary">
+									+{cart?.length || 0}
+								</div>
+							</button>
+						</Link>
+					</li>
+				</>
 			)}
-			<li>
-				<Link to="dashboard/mycart">
-					<button className="btn gap-2">
-						<FaShoppingCart></FaShoppingCart>
-						<div className="badge badge-secondary">
-							+{cart?.length || 0}
-						</div>
-					</button>
-				</Link>
-			</li>
+
 			{user ? (
 				<>
 					<button onClick={handleLogOut} className="btn btn-ghost">
